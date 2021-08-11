@@ -22,6 +22,10 @@ class FizzBuzzTest extends TestCase
     {
         $sut = new FizzBuzz();
         $this->assertSame('Fizz', $sut->execute(3));
+        $this->assertSame('Fizz', $sut->execute(6));
+        $this->assertSame('Fizz', $sut->execute(9));
+        $this->assertSame('Fizz', $sut->execute(12));
+        $this->assertSame('Fizz', $sut->execute(15));
     }
 
     // 指定された数値が5で割り切れる時は「Buzz」を出力
