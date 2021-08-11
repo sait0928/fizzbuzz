@@ -14,7 +14,6 @@ class FizzBuzzTest extends TestCase
         $this->assertSame('1', $sut->execute(1));
         $this->assertSame('2', $sut->execute(2));
         $this->assertSame('4', $sut->execute(4));
-        $this->assertSame('5', $sut->execute(5));
     }
 
     /** @test */
@@ -25,9 +24,17 @@ class FizzBuzzTest extends TestCase
         $this->assertSame('Fizz', $sut->execute(6));
         $this->assertSame('Fizz', $sut->execute(9));
         $this->assertSame('Fizz', $sut->execute(12));
-        $this->assertSame('Fizz', $sut->execute(15));
     }
 
-    // 指定された数値が5で割り切れる時は「Buzz」を出力
+    /** @test */
+    public function 指定された数値が5で割り切れる時は「Buzz」を出力(): void
+    {
+        $sut = new FizzBuzz();
+        $this->assertSame('Buzz', $sut->execute(5));
+        $this->assertSame('Buzz', $sut->execute(10));
+        $this->assertSame('Buzz', $sut->execute(15));
+        $this->assertSame('Buzz', $sut->execute(20));
+    }
+
     // 指定された数値が3でも5でも割り切れる時は「FizzBuzz」を出力
 }
