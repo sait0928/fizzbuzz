@@ -11,6 +11,7 @@ class FizzBuzzTest extends TestCase
     public function 指定された数値を文字列化して返す(): void
     {
         $sut = new FizzBuzz();
+        $this->assertSame('1', $sut->execute(1));
     }
 
     // 指定された数値が3で割り切れる時は「Fizz」を出力
