@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\FizzBuzz\FizzBuzz;
 use Tests\TestCase;
 
 class FizzBuzzTest extends TestCase
