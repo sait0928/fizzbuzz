@@ -2,6 +2,7 @@
 
 namespace Tests\Unit;
 
+use App\Exceptions\FizzBuzzException;
 use App\FizzBuzz\FizzBuzz;
 use Tests\TestCase;
 
@@ -41,5 +42,26 @@ class FizzBuzzTest extends TestCase
         $this->assertSame('FizzBuzz', $sut->execute(15));
         $this->assertSame('FizzBuzz', $sut->execute(30));
         $this->assertSame('FizzBuzz', $sut->execute(45));
+    }
+
+    /**
+     * @test
+     * @dataProvider exceptionDataProvider
+     */
+    public function 無効な数値が与えられたら例外を投げる(int $i, string $exceptionClass): void
+    {
+        $this->expectException($exceptionClass);
+
+        $sut = new FizzBuzz();
+        $sut->execute($i);
+    }
+
+    public function exceptionDataProvider(): array
+    {
+        return [
+            [0,  FizzBuzzException::class],
+            [-1, FizzBuzzException::class],
+            [-2, FizzBuzzException::class],
+        ];
     }
 }
