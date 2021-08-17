@@ -48,9 +48,9 @@ class FizzBuzzTest extends TestCase
      * @test
      * @dataProvider exceptionDataProvider
      */
-    public function 無効な数値が与えられたら例外を投げる(int $i, string $exceptionClass): void
+    public function 無効な数値が与えられたら例外を投げる(int $i): void
     {
-        $this->expectException($exceptionClass);
+        $this->expectException(FizzBuzzException::class);
 
         $sut = new FizzBuzz();
         $sut->execute($i);
@@ -59,9 +59,9 @@ class FizzBuzzTest extends TestCase
     public function exceptionDataProvider(): array
     {
         return [
-            [0,  FizzBuzzException::class],
-            [-1, FizzBuzzException::class],
-            [-2, FizzBuzzException::class],
+            [0],
+            [-1],
+            [-2],
         ];
     }
 }
